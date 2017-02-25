@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		var getEmail = function(email) {
+			var re =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+			if (!re.test(email)) 
+				alert("Invalid Email.");
+			return re.test(email);	
+		};
+		var emptyField = function(input) {
+					var getInput = document.getElementById(input).value;
+					return (getInput == "");
+		}
+	</script>
+</head>
+<body>
+		<form action="javascript:void(0)" method="POST" enctype="multipart/form-data">
+			
+			 <input type="text" placeholder="Full name" id="fullname" onblur="(function(id){			
+				if( emptyField(id) ){
+					alert('Full name field cannot be empty.');
+				}			
+			})(this.id);"></label> <br/>
+			<label>Email Address:<br>
+			 <input type="text" placeholder="Email" id="email" onchange="validateEmail(this.value)" onblur="(function(id){			
+				if( emptyField(id) ){
+					alert('Email field cannot be empty.');
+				}			
+			})(this.id);"/> <br/>
+			<label>Phone Number:<br>
+			 <input type="text" placeholder="Phone number" id="phone" onblur="(function(id){			
+				if( emptyField(id) ){
+					alert('Phone number field cannot be empty.');
+				}			
+			})(this.id);"></label> <br/>
+			<label>Address:<br>
+			<input type="text" placeholder="Address" id="address" ></label> <br/>
+		</form>
+
+</body>
+</html>
